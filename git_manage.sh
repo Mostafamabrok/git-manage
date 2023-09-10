@@ -13,6 +13,8 @@ Introduction () {
     if [[ "$action" == "2" ]]; then add_to_repos ; fi
     if [[ "$action" == "3" ]]; then delete_saved_repos ; fi
     if [[ "$action" == "4" ]]; then exit ; fi
+
+    Introduction
 }
 
 execute_in_repos () {
@@ -36,4 +38,5 @@ delete_saved_repos () {
     echo "List of saved repos deleted"
     fi
 }
+
 Introduction
