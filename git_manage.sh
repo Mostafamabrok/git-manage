@@ -33,6 +33,7 @@ delete_saved_repos () {
     if [[ "$permission" == "y" ]]
     then
     rm SavedRepos.txt
+    echo "List of saved repos deleted"
     fi
 }
 Introduction
