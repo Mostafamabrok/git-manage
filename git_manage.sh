@@ -4,15 +4,16 @@ Introduction () {
     echo -e "\nWhat would you like to do?"
     echo "1-Run a command on your desired set of repos."
     echo "2-Add to saved repo list."
-    echo "2-View saved repo list."
-    echo "3-Delete saved repo list."
-    echo "4-Close Git-manage."
+    echo "3-View saved repo list."
+    echo "4-Delete saved repo list."
+    echo "5-Close Git-manage."
     read -p "Action:" action
 
     if [[ "$action" == "1" ]]; then execute_in_repos ; fi
     if [[ "$action" == "2" ]]; then add_to_repos ; fi
-    if [[ "$action" == "3" ]]; then delete_saved_repos ; fi
-    if [[ "$action" == "4" ]]; then exit ; fi
+    if [[ "$action" == "3" ]]; then view_repos ; fi
+    if [[ "$action" == "4" ]]; then delete_saved_repos ; fi
+    if [[ "$action" == "5" ]]; then exit ; fi
 
     Introduction
 }
@@ -37,6 +38,11 @@ delete_saved_repos () {
     rm SavedRepos.txt
     echo "List of saved repos deleted"
     fi
+}
+
+view_repos () {
+    cat SavedRepos.txt
+    read -p "Press any key to continue:"
 }
 
 Introduction
