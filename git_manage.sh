@@ -7,18 +7,20 @@ Introduction () {
     echo "3-View saved repo list."
     echo "4-Delete saved repo list."
     echo "5-Close Git-manage."
-    read -p "Action:" action
+    read -p "Action:" action #Asks the user for what action they want to perform with Git-Manage.
 
-    if [[ "$action" == "1" ]]; then execute_in_repos ; fi
+    #The following if statments see what action the user wants to perform, then executes the respective function.
+    if [[ "$action" == "1" ]]; then execute_in_repos ; fi 
     if [[ "$action" == "2" ]]; then add_to_repos ; fi
     if [[ "$action" == "3" ]]; then view_repos ; fi
     if [[ "$action" == "4" ]]; then delete_saved_repos ; fi
     if [[ "$action" == "5" ]]; then exit ; fi
 
-    Introduction
+    Introduction #This calls the Intro function within itself to allow the user to perform multiple actions without having to execute `git_manage.sh` again.
 }
 
 execute_in_repos () {
+    #This block of code executes a command in every repo the user has saved.
     read -p "What command do you want to run? (Enter Command):" desired_command
     for line in $(cat SavedRepos.txt)
     do
@@ -27,11 +29,13 @@ execute_in_repos () {
 }
 
 add_to_repos () {
+    #This adds a saved repo to the list.
     read -p "Enter the full path to your repo." added_repo
     echo "$added_repo" >> SavedRepos.txt
 }
 
 delete_saved_repos () {
+    #This code asks the user for permission to delete the list of savved repos, then deletes SavedRepos.txt, which is where the list is stored.
     read -p "Are you sure you want to delete your saved repos: (y/n)" permission
     if [[ "$permission" == "y" ]]
     then
@@ -41,10 +45,11 @@ delete_saved_repos () {
 }
 
 view_repos () {
+    #This code uses the `cat` function to show the user their list of saved repos.
     echo -e "Viewing list of saved repos...\n"
     cat SavedRepos.txt
     echo "" #Cheap way to create a new line for readibility's sake.
     read -p "Press any key to continue:"
 }
 
-Introduction
+Introduction #This starts the program by calling the Introduction function.
