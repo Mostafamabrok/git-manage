@@ -6,6 +6,13 @@ Introduction () {
     echo "2-Add to saved repo list."
     echo "2-View saved repo list."
     echo "3-Delete saved repo list."
+    echo "4-Close Git-manage."
+    read -p "Action:" action
+
+    if [[ "$action" == "1" ]]; then execute_in_repos ; fi
+    if [[ "$action" == "2" ]]; then add_to_repos ; fi
+    if [[ "$action" == "3" ]]; then delete_saved_repos ; fi
+    if [[ "$action" == "4" ]]; then exit ; fi
 }
 
 execute_in_repos () {
@@ -28,3 +35,4 @@ delete_saved_repos () {
     rm SavedRepos.txt
     fi
 }
+Introduction
