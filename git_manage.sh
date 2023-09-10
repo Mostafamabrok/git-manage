@@ -30,7 +30,7 @@ execute_in_repos () {
 
 add_to_repos () {
     #This adds a saved repo to the list.
-    read -p "Enter the full path to your repo." added_repo
+    read -p "Enter the full path to your repo:" added_repo
     echo "$added_repo" >> SavedRepos.txt
 }
 
