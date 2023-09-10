@@ -9,9 +9,11 @@ Introduction () {
 }
 
 execute_in_repos () {
-    #Ask what command to execute
-    #For each line in savedrepos, change directory to that line and execute the command.
-    echo "prevents runtime bug"
+    read -p "What command do you want to run? (Enter Command):" desired_command
+    for line in $(cat SavedRepos.txt)
+    do
+    (cd $line; eval $desired_command)
+    done
 }
 
 add_to_repos () {
