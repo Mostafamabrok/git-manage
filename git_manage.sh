@@ -20,7 +20,9 @@ add_to_repos () {
 }
 
 delete_saved_repos () {
-    #Make sure the user wants to delete their list of savedrepos
-    #Delte savedrepos.txt
-    echo "prevents runtime bug"
+    read -p "Are you sure you want to delete your saved repos: (y/n)" permission
+    if [[ "$permission" == "y" ]]
+    then
+    rm SavedRepos.txt
+    fi
 }
