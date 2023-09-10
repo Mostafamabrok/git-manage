@@ -41,7 +41,9 @@ delete_saved_repos () {
 }
 
 view_repos () {
+    echo -e "Viewing list of saved repos...\n"
     cat SavedRepos.txt
+    echo "" #Cheap way to create a new line for readibility's sake.
     read -p "Press any key to continue:"
 }
 
