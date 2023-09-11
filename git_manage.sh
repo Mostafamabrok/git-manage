@@ -35,6 +35,7 @@ add_to_repos () {
     #This adds a saved repo to the list.
     read -p "Enter the full path to your repo:" added_repo
     echo "$added_repo" >> configs/SavedRepos.txt
+    echo -e "Added directory to list.\n"
 }
 
 delete_saved_repos () {
