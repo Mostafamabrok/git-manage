@@ -1,4 +1,7 @@
 #!/bin/bash
+
+mkdir configs
+
 Introduction () {
     echo "Git-manage, an easy to use and lightweight tool for managing multiple git repositories."
     echo -e "\nWhat would you like to do?"
@@ -22,7 +25,7 @@ Introduction () {
 execute_in_repos () {
     #This block of code executes a command in every repo the user has saved.
     read -p "What command do you want to run? (Enter Command):" desired_command
-    for line in $(cat SavedRepos.txt)
+    for line in $(cat configs/SavedRepos.txt)
     do
     (cd $line; eval $desired_command)
     done
@@ -31,15 +34,15 @@ execute_in_repos () {
 add_to_repos () {
     #This adds a saved repo to the list.
     read -p "Enter the full path to your repo:" added_repo
-    echo "$added_repo" >> SavedRepos.txt
+    echo "$added_repo" >> configs/SavedRepos.txt
 }
 
 delete_saved_repos () {
-    #This code asks the user for permission to delete the list of savved repos, then deletes SavedRepos.txt, which is where the list is stored.
+    #This code asks the user for permission to delete the list of savved repos, then deletes configs/SavedRepos.txt, which is where the list is stored.
     read -p "Are you sure you want to delete your saved repos: (y/n)" permission
     if [[ "$permission" == "y" ]]
     then
-    rm SavedRepos.txt
+    rm configs/SavedRepos.txt
     echo "List of saved repos deleted"
     fi
 }
@@ -47,7 +50,7 @@ delete_saved_repos () {
 view_repos () {
     #This code uses the `cat` function to show the user their list of saved repos.
     echo -e "Viewing list of saved repos...\n"
-    cat SavedRepos.txt
+    cat configs/SavedRepos.txt
     echo "" #Cheap way to create a new line for readibility's sake.
     read -p "Press any key to continue:"
 }
