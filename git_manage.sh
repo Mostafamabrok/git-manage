@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir configs
+mkdir configs -p
 
 Introduction () {
     echo "Git-manage, an easy to use and lightweight tool for managing multiple git repositories."
