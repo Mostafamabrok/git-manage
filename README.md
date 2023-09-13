@@ -13,5 +13,5 @@ Git-manage is a tool built on bash that allows you to manage multiple repositori
 
 ### Next potential updates:
 - Have a set of commands be ran instead of one.
-- Have more than one set of repos to be managed. Example: `Set 1: git_manage, cool_repo.` `Set 2: epic-repo2, Best-repo-ever.`
+- Have multiple sets of repos to be managed. Example: `Set 1: nice_repo, cool_repo.` `Set 2: repo2, Best-repo.`
 - This tool may potentially be converted to python for windows support.
